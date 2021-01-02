@@ -1,4 +1,3 @@
-const { info } = require('console');
 const fs = require('fs');
 
 // 案例: 读取文件的信息
