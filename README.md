@@ -17,9 +17,37 @@
 
 ## 启用静态服务器
 
--   app.use(express.static('路径'))
+-   express
+
+```js
+const express = require('express');
+
+const app = express();
+
+app.use(express.static('./dist'));
+
+app.listen(8000, () => {
+	console.log('路由服务器启动成功~');
+});
+```
+
+-   koa
+
+```js
+const Koa = require('koa');
+const staticAssets = require('koa-static');
+
+const app = new Koa();
+
+app.use(staticAssets('./dist'));
+
+app.listen(8000, () => {
+	console.log('server runing port 8000');
+});
+```
 
 ## express VS koa
 
--   引入 express 返回的是一个函数。
--   引入 koa 返回的是一个类。
+-   1、引入 express 返回的是一个函数。而引入 koa 返回的是一个类。
+
+-   2、express 中间件的返回的只是普通的同步函数。而 koa 的中间件返回的是 promise 函数。
